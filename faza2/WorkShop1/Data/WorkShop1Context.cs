@@ -19,12 +19,16 @@ namespace WorkShop1.Data
         public DbSet<WorkShop1.Models.Teacher> Teacher { get; set; }
         public DbSet<WorkShop1.Models.Enrollment> Enrollment { get; set; }
 
+        public DbSet<WorkShop1.Models.Slik> Slik { get; set; }
+
 
 
         public DbSet<Course> Courses { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+
+        public DbSet<Slik> Sliks { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -43,6 +47,8 @@ namespace WorkShop1.Data
            .HasOne(m => m.SecondTeacher)
            .WithMany(t => t.Course2)
            .HasForeignKey(m => m.SecondTeacherId).OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Slik>().HasKey(m => m.id);
 
             modelBuilder.Entity<Enrollment>()
             .HasOne(m => m.Course)

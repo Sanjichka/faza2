@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -42,6 +43,7 @@ namespace WorkShop1.Models
             }
 
             public ICollection<Enrollment> Enrollments { get; set; }
+
 
     }
 }

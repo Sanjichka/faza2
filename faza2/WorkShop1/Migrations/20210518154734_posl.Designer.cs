@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorkShop1.Data;
 
 namespace WorkShop1.Migrations
 {
     [DbContext(typeof(WorkShop1Context))]
-    partial class WorkShop1ContextModelSnapshot : ModelSnapshot
+    [Migration("20210518154734_posl")]
+    partial class posl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
