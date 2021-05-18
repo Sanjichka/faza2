@@ -1,0 +1,95 @@
+﻿@model WorkShop1.ViewModels.Filter4
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Students.FirstOrDefault().StudentId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Students.FirstOrDefault().StudentId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Students.FirstOrDefault().FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Students.FirstOrDefault().FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Students.FirstOrDefault().LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Students.FirstOrDefault().LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Students.FirstOrDefault().EnrollmentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Students.FirstOrDefault().EnrollmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().Grade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().Grade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().SeminalUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().SeminalUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().ProjectUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().ProjectUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().SeminalPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().SeminalPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().ProjectPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().ProjectPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().AdditionalPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().AdditionalPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().ExamPoints)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().ExamPoints)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().FinishDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Enrollments.FirstOrDefault().FinishDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
