@@ -103,7 +103,7 @@ namespace WorkShop1.Controllers
             return uniqueFileName;
         }*/
 
-        public async Task<IActionResult> EditByStudent(long? id)
+        /*public async Task<IActionResult> EditByStudent(long? id)
         {
             if (id == null)
             {
@@ -119,7 +119,7 @@ namespace WorkShop1.Controllers
             ViewData["CourseId"] = new SelectList(_context.Course, "Id", "Title", enrollment.CourseID);
             ViewData["StudentId"] = new SelectList(_context.Student, "Id", "FullName", enrollment.StudentID);
 
-            EnrollmentView Vmodel = new EnrollmentView
+            Enrollment Vmodel = new Enrollment
             {
                 EnrollmentID = enrollment.EnrollmentID,
                 Semester = enrollment.Semester,
@@ -210,6 +210,57 @@ namespace WorkShop1.Controllers
                 }
             }
             return uniqueFileName;
+        }*/
+
+        public async Task<IActionResult> EditByStudent(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var enrollment = await _context.Enrollments.FindAsync(id);
+            if (enrollment == null)
+            {
+                return NotFound();
+            }
+            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "CourseID", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID", enrollment.StudentID);
+            return View(enrollment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditByStudent(long id, [Bind("EnrollmentID,CourseID,StudentID,Semester,Year,Grade,SeminalUrl,ProjectUrl,ExamPoints,SeminalPoints,ProjectPoints,AdditionalPoints,FinishDate")] Enrollment enrollment)
+        {
+            if (id != enrollment.EnrollmentID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(enrollment);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!EnrollmentExists(enrollment.EnrollmentID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "CourseID", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID", enrollment.StudentID);
+            return View(enrollment);
         }
 
 
