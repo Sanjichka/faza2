@@ -1,0 +1,67 @@
+﻿@model WorkShop1.Models.Course
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="color:darkviolet; font-weight:bolder">Edit</h1>
+
+<h4 style="color:deeppink; font-weight:bolder">Course</h4>
+<hr />
+<hr />
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CourseID" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label" style="color:red; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Title" class="form-control" style="color:red"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Credits" class="control-label" style="color:blue; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Credits" class="form-control" style="color:blue"/>
+                <span asp-validation-for="Credits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Semester" class="control-label" style="color:darkorange; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Semester" class="form-control" style="color:darkorange"/>
+                <span asp-validation-for="Semester" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programme" class="control-label" style="color:forestgreen; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Programme" class="form-control" style="color:forestgreen" />
+                <span asp-validation-for="Programme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EducationLevel" class="control-label" style="color:maroon; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="EducationLevel" class="form-control" style="color:maroon" />
+                <span asp-validation-for="EducationLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstTeacherId" class="control-label" style="color:hotpink; font-weight:bolder; font-size:larger"></label>
+                <select asp-for="FirstTeacherId" class="form-control" asp-items="ViewBag.FirstTeacherId" style="color:hotpink"></select>
+                <span asp-validation-for="FirstTeacherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondTeacherId" class="control-label" style="color:deepskyblue; font-weight:bolder; font-size:larger"></label>
+                <select asp-for="SecondTeacherId" class="form-control" asp-items="ViewBag.SecondTeacherId" style="color:deepskyblue"></select>
+                <span asp-validation-for="SecondTeacherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="font-weight:bolder">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

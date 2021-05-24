@@ -1,0 +1,89 @@
+﻿@model WorkShop1.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="color:darkviolet; font-weight:bolder">Create</h1>
+
+<h4 style="color:deeppink; font-weight:bolder">Enrollment</h4>
+<hr />
+<hr />
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseID" class="control-label" style="color:red; font-weight:bolder; font-size:larger"></label>
+                <select asp-for="CourseID" class ="form-control" asp-items="ViewBag.CourseID" style="color:red"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentID" class="control-label" style="color:blue; font-weight:bolder; font-size:larger"></label>
+                <select asp-for="StudentID" class ="form-control" asp-items="ViewBag.StudentID" style="color:blue"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Semester" class="control-label" style="color:darkorange; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Semester" class="form-control" style="color:darkorange"/>
+                <span asp-validation-for="Semester" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label" style="color:forestgreen; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Year" class="form-control" style="color:forestgreen"/>
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade" class="control-label" style="color:maroon; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="Grade" class="form-control" style="color:maroon"/>
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeminalUrl" class="control-label" style="color:hotpink; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="SeminalUrl" class="form-control" style="color:hotpink"/>
+                <span asp-validation-for="SeminalUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectUrl" class="control-label" style="color:deepskyblue; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="ProjectUrl" class="form-control" style="color:deepskyblue"/>
+                <span asp-validation-for="ProjectUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExamPoints" class="control-label" style="color:darkgreen; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="ExamPoints" class="form-control" style="color:darkgreen"/>
+                <span asp-validation-for="ExamPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeminalPoints" class="control-label" style="color:red; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="SeminalPoints" class="form-control" style="color:red"/>
+                <span asp-validation-for="SeminalPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectPoints" class="control-label" style="color:blue; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="ProjectPoints" class="form-control" style="color:blue"/>
+                <span asp-validation-for="ProjectPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalPoints" class="control-label" style="color:darkorange; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="AdditionalPoints" class="form-control" style="color:darkorange"/>
+                <span asp-validation-for="AdditionalPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinishDate" class="control-label" style="color:forestgreen; font-weight:bolder; font-size:larger"></label>
+                <input asp-for="FinishDate" class="form-control" style="color:forestgreen"/>
+                <span asp-validation-for="FinishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="font-weight:bolder">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,11 @@
+cd kade sakame i cmd -> composer create-project laravel/laravel ime
+
+php artisan route:cache
+
+php artisan make:migration create_flights_table
+
+php artisan make:controller CVController
+
+
+
+
