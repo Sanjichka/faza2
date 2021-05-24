@@ -1,0 +1,78 @@
+﻿@model WorkShop1.ViewModels.Filter5
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4 style="color:darkviolet; font-weight:bolder">@ViewData["Student"]'s Courses</h4>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Courses.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().ExamPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().AdditionalPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().SeminalPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().ProjectPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().SeminalUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.FirstOrDefault().ProjectUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Courses) {
+    @foreach (var i in Model.Enrollments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.ExamPoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.AdditionalPoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.SeminalPoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.ProjectPoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.SeminalUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.ProjectUrl)
+            </td>
+            <td>
+                <a asp-controller="EnrollmentsStud" asp-action="Edit" asp-route-id="@item.Enrollments.FirstOrDefault().EnrollmentID">Edit_Url</a> |
+                <a asp-action="Edit" asp-route-id="@item.CourseID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CourseID">Details</a> |
+                <a asp-controller="EnrollmentsStud" asp-action="Delete" asp-route-id="@item.CourseID">Delete</a>
+            </td>
+        </tr>
+        }
+    }
+    </tbody>
+</table>

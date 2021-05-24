@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WorkShop1.Models.Slik>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h4 class="text-center text-uppercase">List of Students</h4>
+
+<p>
+    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var slik in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@slik.ProfileImage"
+                         class="rounded-circle"
+                         height="40" width="40"
+                         asp-append-version="true" />
+                </td>
+                <td>@slik.FirstName</td>
+                <td>@slik.LastName</td>
+            </tr>
+        }
+    </tbody>
+</table>

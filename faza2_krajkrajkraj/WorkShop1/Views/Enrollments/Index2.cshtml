@@ -1,0 +1,35 @@
+﻿@model WorkShop1.ViewModels.Filter7
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="color:blueviolet; font-weight:bolder">Create</h1>
+
+<h4 style="color:deeppink; font-weight:bolder">Enrollment</h4>
+<hr />
+<hr />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SelectedStudents" class="control-label" style="color:forestgreen; font-weight:bolder; font-size:larger"></label>
+                <select asp-for="SelectedStudents" class="form-control" asp-items="Model.StudentList" style="color:forestgreen"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

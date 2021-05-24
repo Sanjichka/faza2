@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WorkShop1.Models.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4 style="color:darkviolet; font-weight:bolder">@ViewData["Prof"]'s Courses:</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Programme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstTeacher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondTeacher)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Programme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstTeacher.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondTeacher.FirstName)
+            </td>
+            <td>
+                <a asp-action="StudPoCourse" asp-route-id="@item.CourseID">Students</a> |
+                <a asp-action="Edit" asp-route-id="@item.CourseID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CourseID">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
