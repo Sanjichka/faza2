@@ -1,0 +1,88 @@
+﻿@model WorkShop1.ViewModels.Filter7
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Enrollment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Enrollments.FirstOrDefault().EnrollmentID" />
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().CourseID" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().CourseID" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().CourseID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedStudents" class="control-label" style="color:forestgreen; font-weight:bolder; font-size:larger"></label>
+                <select asp-for="SelectedStudents" class="form-control" asp-items="Model.StudentList" style="color:forestgreen"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().Semester" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().Semester" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().Semester" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().Year" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().Year" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().Grade" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().Grade" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().SeminalUrl" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().SeminalUrl" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().SeminalUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().ProjectUrl" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().ProjectUrl" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().ProjectUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().ExamPoints" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().ExamPoints" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().ExamPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().SeminalPoints" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().SeminalPoints" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().SeminalPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().ProjectPoints" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().ProjectPoints" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().ProjectPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().AdditionalPoints" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().AdditionalPoints" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().AdditionalPoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollments.FirstOrDefault().FinishDate" class="control-label"></label>
+                <input asp-for="Enrollments.FirstOrDefault().FinishDate" class="form-control" />
+                <span asp-validation-for="Enrollments.FirstOrDefault().FinishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
